@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    tools:context="doctorclient.slinph.com.doctor_client.Activities.LoginActivity">
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/app_logo"
+        android:id="@+id/iv_logo"
+        android:layout_marginTop="80dp"/>
+
+    <EditText
+        android:hint="手机号码"
+        android:textSize="15sp"
+        android:textColorHint="#AAFFFF"
+        android:textCursorDrawable="@null"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/iv_logo"
+        android:background="@null"
+        android:inputType="phone"
+        android:drawableBottom="@drawable/edittext_baseline"
+        android:drawableStart="@drawable/user_account"
+        android:id="@+id/et_account"/>
+
+    <EditText
+        android:hint="密码"
+        android:textSize="15sp"
+        android:textColorHint="#AAFFFF"
+        android:textCursorDrawable="@null"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/et_account"
+        android:background="@null"
+        android:drawableBottom="@drawable/edittext_baseline"
+        android:drawableStart="@drawable/password_lock"
+        android:inputType="textPassword"
+        android:id="@+id/et_password"/>
+
+    <LinearLayout
+        android:layout_below="@id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ll_check_group">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="记住密码"
+            android:button="@null"
+            android:id="@+id/cb_auto_login"
+            android:drawableStart="@drawable/circle_checkbox_selector"
+            android:textColor="@android:color/white"/>
+        <CheckBox
+            android:layout_marginStart="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="用户协议"
+            android:button="@null"
+            android:id="@+id/cb_protocol"
+            android:drawableStart="@drawable/circle_checkbox_selector"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+    <Button
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_check_group"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:text="登录"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/bg_button_rounded"
+        android:id="@+id/bt_login"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/bt_login"
+        android:gravity="center">
+
+        <Button
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_register"
+            android:text="注册"/>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
+
+        <Button
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/bt_find_pw"
+            android:text="忘记密码"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
