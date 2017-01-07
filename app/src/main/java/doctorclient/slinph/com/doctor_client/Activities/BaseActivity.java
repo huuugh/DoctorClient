@@ -21,6 +21,7 @@ import doctorclient.slinph.com.doctor_client.R;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private Toolbar tb_base;
+    private TextView tv_toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +29,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         //very important
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//set screen orientation
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);//set no title
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+            //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
         setContentView(R.layout.activity_base);
-        Immersion();
+        //Immersion();
         tb_base = (Toolbar) findViewById(R.id.tb_base);
-        TextView tv_toolbar = (TextView) findViewById(R.id.tv_toolbar);
+        tv_toolbar = (TextView) findViewById(R.id.tv_toolbar);
         FrameLayout fl_base = (FrameLayout) findViewById(R.id.fl_base);
         View contentLayout = LayoutInflater.from(this).inflate(addLayoutId(), null);
         if (fl_base != null){
@@ -41,11 +48,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             tb_base.setVisibility(View.VISIBLE);
         }else {
             tb_base.setVisibility(View.GONE);
-        }
-
-        String title = setToolbarTitle();
-        if (!title.isEmpty()&&tv_toolbar != null){
-            tv_toolbar.setText(title);
         }
 
         int icon = setToolbarIcon();
@@ -59,6 +61,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initView();
         initEvent();
+    }
+
+    public void setTitle(){
+        String title = setToolbarTitle();
+        if (!title.isEmpty()&&tv_toolbar != null){
+            tv_toolbar.setText(title);
+        }
     }
 
     private void Immersion() {

@@ -91,14 +91,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_login:
-                Toast.makeText(LoginActivity.this, "登录", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this,MainActivity.class));
                 break;
             case R.id.bt_register:
-                Toast.makeText(LoginActivity.this, "注册", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,RegisterActivity.class));
                 break;
             case R.id.bt_find_pw:
-                //Toast.makeText(LoginActivity.this, "找回密码", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this,ForgetPWActivity.class));
                 break;
         }

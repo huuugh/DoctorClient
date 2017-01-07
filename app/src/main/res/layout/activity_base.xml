@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:windowTranslucentNavigation="false">
 
     <LinearLayout
         android:id="@+id/linear_bar"
@@ -20,6 +21,7 @@
         android:minHeight="?actionBarSize"
         android:background="#36C2DC"
         android:id="@+id/tb_base"
+        android:clipToPadding="true"
         android:fitsSystemWindows="true">
 
         <TextView

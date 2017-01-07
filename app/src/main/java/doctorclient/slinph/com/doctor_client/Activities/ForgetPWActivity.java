@@ -15,6 +15,7 @@ public class ForgetPWActivity extends BaseActivity {
         if (supportActionBar != null){
             supportActionBar.hide();
         }
+        setTitle();
     }
 
     @Override

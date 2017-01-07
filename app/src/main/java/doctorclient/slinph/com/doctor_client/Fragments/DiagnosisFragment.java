@@ -10,7 +10,7 @@ import doctorclient.slinph.com.doctor_client.R;
  * Created by hugh on 2017/1/6.
  *
  */
-public class MeFragment extends BaseFragment {
+public class DiagnosisFragment extends BaseFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected String setFragmentTitle() {
-        return "我的";
+        return "医生诊疗";
     }
 
     @Override
@@ -29,7 +29,8 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected View addFragmentLayout() {
-        View meView = LayoutInflater.from(mContext).inflate(R.layout.fragment_me_layout, null);
-        return meView;
+        View diagnosisView = LayoutInflater.from(mContext).inflate(R.layout.fragment_diagnosis_layout, null);
+        return diagnosisView;
     }
+
 }

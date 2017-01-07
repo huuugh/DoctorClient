@@ -1,7 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_me_header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_my_info">
+        <FrameLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/fl_head_image"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true">
+
+            <doctorclient.slinph.com.doctor_client.Views.CircleImageView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/head_image"/>
+
+            <TextView
+                android:text="未验证"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:background="@drawable/is_id_verification"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="100dp"
+                android:layout_gravity="end"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fl_head_image"
+            android:id="@+id/tv_name"
+            android:text="王某某"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="职位"
+                android:layout_marginEnd="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="医院名称"
+                android:layout_marginStart="5dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/rl_me_header"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_me_item"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#3DBDD3"
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="124dp">
+
+        <TextView
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/me_card"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/my_card"
+            android:drawableEnd="@drawable/arrow_right"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="我的名片"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/white"/>
+        <TextView
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/me_pocket"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/my_pocket"
+            android:drawableEnd="@drawable/arrow_right"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="我的钱包"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/white"/>
+        <TextView
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/me_prescription"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/my_prescription"
+            android:drawableEnd="@drawable/arrow_right"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="我的处方"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#3DBDD3"
+        android:layout_marginTop="35dp"
+        android:layout_below="@id/ll_me_item"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="82dp">
+
+        <TextView
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/me_setting"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/setting"
+            android:drawableEnd="@drawable/arrow_right"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="设置"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/white"/>
+        <TextView
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/me_customer_service"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/communication"
+            android:drawableEnd="@drawable/arrow_right"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="联系客服"
+            android:clickable="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+    </LinearLayout>
+    </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
