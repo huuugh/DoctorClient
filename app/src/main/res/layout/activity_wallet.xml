@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="doctorclient.slinph.com.doctor_client.Activities.WalletActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_wallet_header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_wallet">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00.00"
+            android:textColor="@android:color/white"
+            android:id="@+id/tv_balance"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="40dp"
+            android:textSize="50sp"
+            android:layout_marginBottom="40dp"/>
+
+        <TextView
+            android:textSize="18sp"
+            android:layout_marginStart="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账户金额（元）"
+            android:textColor="@android:color/white"
+            android:layout_above="@id/tv_balance"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_below="@id/rl_wallet_header"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="提现"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:paddingStart="10dp"
+            android:drawableLeft="@drawable/icon_withdraw"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/arrow_right_green"
+            android:paddingEnd="10dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.3dp"
+            android:background="@drawable/setting_item_divider"/>
+
+        <View
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="1.3dp"
+            android:background="@drawable/setting_item_divider"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="交易账单"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:paddingStart="10dp"
+            android:drawableLeft="@drawable/icon_billing"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/arrow_right_green"
+            android:paddingEnd="10dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.3dp"
+            android:background="@drawable/setting_item_divider"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="绑定银行卡"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:paddingStart="10dp"
+            android:drawableLeft="@drawable/icon_bankcard"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/arrow_right_green"
+            android:paddingEnd="10dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.3dp"
+            android:background="@drawable/setting_item_divider"/>
+        
+    </LinearLayout>
+
+</RelativeLayout>

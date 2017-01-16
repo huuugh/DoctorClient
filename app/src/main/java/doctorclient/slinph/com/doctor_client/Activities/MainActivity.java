@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import doctorclient.slinph.com.doctor_client.Fragments.DiagnosisFragment;
 import doctorclient.slinph.com.doctor_client.Fragments.MeFragment;
@@ -24,8 +24,8 @@ public class MainActivity extends BaseActivity implements CompoundButton.OnCheck
     private RadioButton rb_news;
     private RadioButton rb_me;
     private FragmentManager mFragmentManager;
-    private FrameLayout fl_main;
     private Fragment mContent;
+    private RadioGroup rg_tab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,30 +34,31 @@ public class MainActivity extends BaseActivity implements CompoundButton.OnCheck
         if (supportActionBar != null){
             supportActionBar.hide();
         }
+        diagnosisFragment = new DiagnosisFragment();
+        newsFragment = new NewsFragment();
+        meFragment = new MeFragment();
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        //super.onRestoreInstanceState(savedInstanceState);
+    public void onSaveInstanceState(Bundle outState) {
+        //super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        diagnosisFragment = new DiagnosisFragment();
-        newsFragment = new NewsFragment();
-        meFragment = new MeFragment();
-
         mFragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fl_main,diagnosisFragment);
-        fragmentTransaction.commit();
-        mContent = diagnosisFragment;
-        setTitle();
+        if (!diagnosisFragment.isAdded()){
+            fragmentTransaction.add(R.id.fl_main,diagnosisFragment);
+            fragmentTransaction.commit();
+            mContent = diagnosisFragment;
+        }
     }
 
     @Override
     protected void initView() {
+        rg_tab = (RadioGroup) findViewById(R.id.rg_tab);
         rb_diagnosis = (RadioButton) findViewById(R.id.rb_diagnosis);
         rb_news = (RadioButton) findViewById(R.id.rb_news);
         rb_me = (RadioButton) findViewById(R.id.rb_me);

@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.lang.reflect.Field;
@@ -36,7 +34,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         setContentView(R.layout.activity_base);
-        //Immersion();
         tb_base = (Toolbar) findViewById(R.id.tb_base);
         tv_toolbar = (TextView) findViewById(R.id.tv_toolbar);
         FrameLayout fl_base = (FrameLayout) findViewById(R.id.fl_base);
@@ -53,6 +50,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         int icon = setToolbarIcon();
         if (icon != 0){
             tb_base.setNavigationIcon(icon);
+        }else {
+            tb_base.setNavigationIcon(R.drawable.arrow_left);
         }
 
         if (setNavigationAction() != null){
@@ -63,6 +62,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         initEvent();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setTitle();
+    }
+
     public void setTitle(){
         String title = setToolbarTitle();
         if (!title.isEmpty()&&tv_toolbar != null){
@@ -70,27 +75,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private void Immersion() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
-        RelativeLayout.LayoutParams params = null;
-        int statusHeight = 0;
-        LinearLayout linear_bar = (LinearLayout)findViewById(R.id.linear_bar);
-        if (linear_bar != null){
-            linear_bar.setVisibility(View.VISIBLE);
-            statusHeight = getStatusBarHeight();
-            params = (RelativeLayout.LayoutParams )linear_bar.getLayoutParams();
-        }
-        if (params != null){
-            params.height = statusHeight;
-        }
-        if (linear_bar != null){
-            linear_bar.setLayoutParams(params);
-        }
+    public Toolbar getTb_base() {
+        return tb_base;
     }
 
     /**
