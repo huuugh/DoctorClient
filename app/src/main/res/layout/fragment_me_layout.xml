@@ -18,6 +18,7 @@
             android:layout_centerHorizontal="true">
 
             <doctorclient.slinph.com.doctor_client.Views.CircleImageView
+                android:id="@+id/civ_me_head"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/head_image"/>

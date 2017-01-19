@@ -18,11 +18,6 @@
         <activity
             android:name=".Activities.LoginActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activities.ForgetPWActivity"
@@ -38,9 +33,29 @@
         </activity>
         <activity android:name=".Activities.WalletActivity">
         </activity>
-        <activity android:name=".Activities.QRcodeActivity">
+        <activity android:name=".Activities.PersonalCodeActivity">
         </activity>
-        <activity android:name=".Activities.VerificationActivity">
+        <activity
+            android:name=".Activities.VerificationActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity android:name=".Activities.AppShareActivity"/>
+        <activity android:name=".Activities.BindBankCardActivity">
+        </activity>
+        <activity android:name=".Activities.WithdrawalsRecordActivity">
+        </activity>
+        <activity android:name=".Activities.PatientDetailActivity">
+        </activity>
+        <activity
+            android:name=".Activities.DiagnosisActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity android:name=".Activities.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

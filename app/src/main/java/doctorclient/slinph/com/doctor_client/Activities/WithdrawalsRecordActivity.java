@@ -5,7 +5,7 @@ import android.view.View;
 
 import doctorclient.slinph.com.doctor_client.R;
 
-public class AdviceActivity extends BaseActivity {
+public class WithdrawalsRecordActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class AdviceActivity extends BaseActivity {
 
     @Override
     protected String setToolbarTitle() {
-        return "意见反馈";
+        return "提现记录";
     }
 
     @Override
@@ -39,7 +39,7 @@ public class AdviceActivity extends BaseActivity {
 
     @Override
     protected int addLayoutId() {
-        return R.layout.activity_advice;
+        return R.layout.activity_withdrawals_record;
     }
 
     @Override

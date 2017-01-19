@@ -1,10 +1,13 @@
 package doctorclient.slinph.com.doctor_client.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import doctorclient.slinph.com.doctor_client.Activities.PatientDetailActivity;
 import doctorclient.slinph.com.doctor_client.Adapter.patientListAdapter;
 import doctorclient.slinph.com.doctor_client.R;
 
@@ -34,6 +37,12 @@ public class DiagnosisFragment extends BaseFragment {
         View diagnosisView = LayoutInflater.from(mContext).inflate(R.layout.fragment_diagnosis_layout, null);
         ListView lv_patient = (ListView) diagnosisView.findViewById(R.id.lv_patient);
         lv_patient.setAdapter(new patientListAdapter(mContext));
+        lv_patient.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(mContext, PatientDetailActivity.class));
+            }
+        });
         return diagnosisView;
     }
 }

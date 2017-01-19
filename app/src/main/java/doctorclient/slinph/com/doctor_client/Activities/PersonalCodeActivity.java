@@ -1,15 +1,22 @@
 package doctorclient.slinph.com.doctor_client.Activities;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import doctorclient.slinph.com.doctor_client.R;
 
-public class AdviceActivity extends BaseActivity {
+public class PersonalCodeActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toolbar tb_base = getTb_base();
+        tb_base.setOnMenuItemClickListener(this);
+        tb_base.inflateMenu(R.menu.infoshare_menu);
     }
 
     @Override
@@ -29,7 +36,7 @@ public class AdviceActivity extends BaseActivity {
 
     @Override
     protected String setToolbarTitle() {
-        return "意见反馈";
+        return "我的名片";
     }
 
     @Override
@@ -39,7 +46,7 @@ public class AdviceActivity extends BaseActivity {
 
     @Override
     protected int addLayoutId() {
-        return R.layout.activity_advice;
+        return R.layout.activity_personnalcode;
     }
 
     @Override
@@ -50,5 +57,21 @@ public class AdviceActivity extends BaseActivity {
                 finish();
             }
         };
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.infoshare_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_share:
+                Toast.makeText(PersonalCodeActivity.this, "share_card", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
     }
 }

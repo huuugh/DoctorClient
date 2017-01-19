@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorDivider">#663DBDD3</color>
     <color name="color_bg">#3DBDD3</color>
+    <color name="tpi_unchecked">#666666</color>
+    <color name="tpi_checked">#45BDE6</color>
 </resources>

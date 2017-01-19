@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="doctorclient.slinph.com.doctor_client.Activities.QRcodeActivity">
+    tools:context=".Activities.PersonalCodeActivity">
 
     <ImageView
         android:id="@+id/iv_code"

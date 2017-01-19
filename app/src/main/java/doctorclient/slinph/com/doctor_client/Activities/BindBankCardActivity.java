@@ -5,7 +5,7 @@ import android.view.View;
 
 import doctorclient.slinph.com.doctor_client.R;
 
-public class AdviceActivity extends BaseActivity {
+public class BindBankCardActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class AdviceActivity extends BaseActivity {
 
     @Override
     protected String setToolbarTitle() {
-        return "意见反馈";
+        return "绑定银行卡";
     }
 
     @Override
@@ -39,7 +39,7 @@ public class AdviceActivity extends BaseActivity {
 
     @Override
     protected int addLayoutId() {
-        return R.layout.activity_advice;
+        return R.layout.activity_bind_bank_card;
     }
 
     @Override

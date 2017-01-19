@@ -105,10 +105,10 @@ public class MainActivity extends BaseActivity implements CompoundButton.OnCheck
         if (mContent != target) {
             mContent = target;
             FragmentTransaction transaction = mFragmentManager.beginTransaction();
-            if (!target.isAdded()) {    // 先判断是否被add过
-                transaction.hide(outset).add(R.id.fl_main, target).commit(); // 隐藏当前的fragment，add下一个到Activity中
+            if (!target.isAdded()) {// 先判断是否被add过
+                transaction.hide(outset).add(R.id.fl_main, target).commit();// 隐藏当前的fragment，add下一个到Activity中
             } else {
-                transaction.hide(outset).show(target).commit(); // 隐藏当前的fragment，显示下一个
+                transaction.hide(outset).show(target).commit();// 隐藏当前的fragment，显示下一个
             }
         }
     }

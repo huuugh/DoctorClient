@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:scrollbars="none"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="doctorclient.slinph.com.doctor_client.Activities.DiagnosisActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_marginStart="15dp"
+            android:gravity="center_vertical"
+            android:text="脱发类型："
+            android:layout_width="120dp"
+            android:layout_height="match_parent"/>
+
+        <Spinner
+            android:entries="@array/loss_types"
+            android:gravity="center"
+            android:id="@+id/spinner_loss_type"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:text="脱发等级："
+            android:layout_marginStart="15dp"
+            android:gravity="center_vertical"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"/>
+
+        <Spinner
+            android:entries="@array/loss_degrees"
+            android:gravity="center"
+            android:id="@+id/spinner_loss_degree"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:text="脱发并发症："
+            android:layout_marginStart="15dp"
+            android:gravity="center_vertical"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"/>
+
+        <Spinner
+            android:entries="@array/loss_disease"
+            android:gravity="center"
+            android:id="@+id/spinner_loss_disease"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <TextView
+        android:text="所有阶段（多选）："
+        android:gravity="center_vertical"
+        android:layout_marginStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <doctorclient.slinph.com.doctor_client.Views.flowlayout.TagFlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:id="@+id/fl_all_stage"
+        app:max_select="-1">
+    </doctorclient.slinph.com.doctor_client.Views.flowlayout.TagFlowLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <TextView
+        android:text="当前阶段："
+        android:gravity="center_vertical"
+        android:layout_marginStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <doctorclient.slinph.com.doctor_client.Views.flowlayout.TagFlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:id="@+id/fl_current_stage"
+        app:max_select="1">
+    </doctorclient.slinph.com.doctor_client.Views.flowlayout.TagFlowLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingEnd="20dp">
+
+        <TextView
+            android:text="生发头盔每月建议使用次数："
+            android:gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:layout_width="200dp"
+            android:layout_height="30dp"/>
+
+        <EditText
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <TextView
+        android:text="选择处方："
+        android:gravity="center_vertical"
+        android:layout_marginStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_wallet"/>
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerCrop"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_wallet"/>
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerCrop"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_wallet"/>
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerCrop"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_wallet"/>
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <TextView
+        android:text="医生建议："
+        android:gravity="center_vertical"
+        android:layout_marginStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+
+    <EditText
+        android:gravity="start"
+        android:textSize="12sp"
+        android:padding="5dp"
+        android:hint="输入您的建议~"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/fram_advice_input"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1.3dp"
+        android:background="@drawable/setting_item_divider"/>
+
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <Button
+            android:background="@drawable/round_rect"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="及时沟通"/>
+
+        <Button
+            android:background="@drawable/round_rect"
+            android:layout_marginLeft="50dp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="完成诊断"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

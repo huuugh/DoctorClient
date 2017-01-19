@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="loss_types">
+        <item>男性型脱发（雄激素依赖性脱发）</item>
+        <item>女性雄激素性脱发 </item>
+        <item>产后脱发</item>
+        <item>内分泌源型弥漫性脱发</item>
+        <item>休止期脱发</item>
+        <item>红斑狼疮性脱发</item>
+        <item>减肥引起脱发</item>
+        <item>拔毛癖</item>
+        <item>斑秃</item>
+    </string-array>
+
+    <string-array name="loss_degrees">
+        <item>I型</item>
+        <item>II型</item>
+        <item>IIa型</item>
+        <item>III型</item>
+        <item>IIIa型</item>
+        <item>IIIvertex型</item>
+        <item>IV型</item>
+        <item>IVa型</item>
+        <item>V型</item>
+        <item>Va型</item>
+        <item>VI型</item>
+        <item>VII型</item>
+        <item>弥漫性脱发</item>
+        <item>I-1型</item>
+        <item>I-2型</item>
+        <item>I-3型</item>
+        <item>I-4型</item>
+        <item>II-1型</item>
+        <item>II-2型</item>
+        <item>III型</item>
+        <item>Frontal型</item>
+        <item>Advanced型</item>
+    </string-array>
+
+    <string-array name="loss_disease">
+        <item>无</item>
+        <item>头皮红疹</item>
+        <item>头皮炎症</item>
+        <item>头皮伴有脓包</item>
+    </string-array>
+</resources>

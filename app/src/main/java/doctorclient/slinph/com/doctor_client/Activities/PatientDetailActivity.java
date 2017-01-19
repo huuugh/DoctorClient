@@ -1,32 +1,38 @@
 package doctorclient.slinph.com.doctor_client.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.Button;
 
 import doctorclient.slinph.com.doctor_client.R;
 
-public class QRcodeActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener {
+public class PatientDetailActivity extends BaseActivity implements View.OnClickListener {
+
+    private Button bt_diagnosis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar tb_base = getTb_base();
-        tb_base.setOnMenuItemClickListener(this);
-        tb_base.inflateMenu(R.menu.share_menu);
     }
 
     @Override
     protected void initView() {
+        bt_diagnosis = (Button) findViewById(R.id.bt_diagnosis);
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bt_diagnosis:
+                startActivity(new Intent(this,DiagnosisActivity.class));
+                break;
+        }
     }
 
     @Override
     protected void initEvent() {
-
+        bt_diagnosis.setOnClickListener(this);
     }
 
     @Override
@@ -36,7 +42,7 @@ public class QRcodeActivity extends BaseActivity implements Toolbar.OnMenuItemCl
 
     @Override
     protected String setToolbarTitle() {
-        return "我的名片";
+        return "患者详情";
     }
 
     @Override
@@ -46,7 +52,7 @@ public class QRcodeActivity extends BaseActivity implements Toolbar.OnMenuItemCl
 
     @Override
     protected int addLayoutId() {
-        return R.layout.activity_qrcode;
+        return R.layout.activity_patient_detail;
     }
 
     @Override
@@ -57,21 +63,5 @@ public class QRcodeActivity extends BaseActivity implements Toolbar.OnMenuItemCl
                 finish();
             }
         };
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.share_menu,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_share:
-                Toast.makeText(QRcodeActivity.this, "share_card", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return true;
     }
 }

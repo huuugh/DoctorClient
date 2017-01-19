@@ -44,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="提现"
+            android:id="@+id/wallet_withdraw"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:paddingStart="10dp"
@@ -58,7 +59,11 @@
             android:background="@drawable/setting_item_divider"/>
 
         <View
-            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#EAFCFF"/>
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1.3dp"
             android:background="@drawable/setting_item_divider"/>
@@ -67,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="交易账单"
+            android:id="@+id/wallet_billing"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:paddingStart="10dp"
@@ -84,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="绑定银行卡"
+            android:id="@+id/wallet_bankcard"
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:paddingStart="10dp"
@@ -96,7 +103,11 @@
             android:layout_width="match_parent"
             android:layout_height="1.3dp"
             android:background="@drawable/setting_item_divider"/>
-        
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EAFCFF"/>
     </LinearLayout>
 
 </RelativeLayout>
