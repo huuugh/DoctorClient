@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:id="@+id/iv_patient_head_image"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_login"/>
+
+    <RelativeLayout
+        android:paddingStart="20dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_toRightOf="@id/iv_patient_head_image"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="王先生"
+            android:textSize="25sp"
+            android:id="@+id/patient_name"/>
+
+        <TextView
+            android:background="@drawable/bg_age"
+            android:gravity="center"
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:text="30岁"
+            android:padding="2dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/patient_name"/>
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="脱发史2年"
+            android:layout_below="@id/patient_name"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/patient_right"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+</RelativeLayout>
