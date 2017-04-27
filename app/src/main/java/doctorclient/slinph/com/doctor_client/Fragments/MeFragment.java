@@ -5,12 +5,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.yanzhenjie.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.rest.OnResponseListener;
+import com.yanzhenjie.nohttp.rest.Response;
 
 import doctorclient.slinph.com.doctor_client.Activities.PersonalCodeActivity;
 import doctorclient.slinph.com.doctor_client.Activities.SettingActivity;
 import doctorclient.slinph.com.doctor_client.Activities.VerificationActivity;
 import doctorclient.slinph.com.doctor_client.Activities.WalletActivity;
+import doctorclient.slinph.com.doctor_client.Internet.JavaBeanRequest;
+import doctorclient.slinph.com.doctor_client.Internet.RequestBean.UserInfo;
+import doctorclient.slinph.com.doctor_client.Internet.Urls;
 import doctorclient.slinph.com.doctor_client.R;
+import doctorclient.slinph.com.doctor_client.Utils.Globalvariable;
 import doctorclient.slinph.com.doctor_client.Views.CircleImageView;
 
 /**
@@ -22,6 +31,38 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    private void requestUserInfo(){
+        final JavaBeanRequest<UserInfo> req= new JavaBeanRequest<>(Urls.loginUrl, RequestMethod.POST, UserInfo.class);
+        req.add("id", Globalvariable.USERID);
+
+        request(0, req, new OnResponseListener<UserInfo>() {
+
+            @Override
+            public void onStart(int what) {
+            }
+
+            @Override
+            public void onSucceed(int what, Response<UserInfo> response) {
+                UserInfo userInfo = response.get();
+                if ("200".equals(userInfo.getCode())){
+                    UserInfo.Info data = userInfo.getData();
+
+                }else {
+                    Toast.makeText(mContext, userInfo.getMsg(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailed(int what, Response<UserInfo> response) {
+                Toast.makeText(mContext, "网络异常 "+response.responseCode(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFinish(int what) {
+            }
+        });
     }
 
     @Override

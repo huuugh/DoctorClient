@@ -7,19 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity">
 
-    <android.support.v4.view.ViewPager
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        android:layout_width="match_parent">
-
         <FrameLayout
-            android:background="@drawable/bg_welcome"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
             android:layout_width="match_parent"
             android:id="@+id/fl_main">
         </FrameLayout>
-
-    </android.support.v4.view.ViewPager>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,10 +26,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rb_communicate"
+                    android:checked="true"
+                    android:textColor="@color/tab_text_color"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:textSize="15sp"
+                    android:button="@null"
+                    android:drawableTop="@drawable/tab_diagnosis"
+                    android:text="咨询"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
 
                 <RadioButton
                     android:id="@+id/rb_diagnosis"
-                    android:checked="true"
                     android:textColor="@color/tab_text_color"
                     android:layout_gravity="center_vertical"
                     android:layout_width="0dp"

@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Doctor_Client</string>
+    <string name="app_name">医福保</string>
+    <string name="phone_err">手机号码不正确</string>
+    <string name="phone_empty">请输入手机号码</string>
+    <string name="again_validate">重试</string>
+    <string name="user_protocol"><u>同意用户协议</u></string>
+    <string name="double_press_exit">双击返回退出程序</string>
 </resources>

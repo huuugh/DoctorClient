@@ -2,7 +2,7 @@ package doctorclient.slinph.com.doctor_client.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -10,7 +10,19 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.yanzhenjie.nohttp.RequestMethod;
+import com.yanzhenjie.nohttp.rest.OnResponseListener;
+import com.yanzhenjie.nohttp.rest.Response;
+
+import doctorclient.slinph.com.doctor_client.Internet.JavaBeanRequest;
+import doctorclient.slinph.com.doctor_client.Internet.RequestBean.LoginResult;
+import doctorclient.slinph.com.doctor_client.Internet.Urls;
 import doctorclient.slinph.com.doctor_client.R;
+import doctorclient.slinph.com.doctor_client.Utils.Globalvariable;
+import doctorclient.slinph.com.doctor_client.Utils.RongCloudUtils;
+import doctorclient.slinph.com.doctor_client.Utils.SharePreferencesUtils;
+import doctorclient.slinph.com.doctor_client.Utils.ValidateUtils;
+import doctorclient.slinph.com.doctor_client.Views.LoadingDialog;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener{
 
@@ -21,14 +33,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private CheckBox cb_protocol;
     private Button bt_register;
     private Button bt_find_pw;
+    private LoginActivity mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActionBar supportActionBar = getSupportActionBar();
+        /*ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null){
             supportActionBar.hide();
-        }
+        }*/
+        mContext = this;
     }
 
     @Override
@@ -91,7 +105,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_login:
-                startActivity(new Intent(this,MainActivity.class));
+                checkInput();
                 break;
             case R.id.bt_register:
                 startActivity(new Intent(this,RegisterActivity.class));
@@ -112,5 +126,85 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 Toast.makeText(LoginActivity.this, ""+isChecked, Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    private void checkInput(){
+        String account = et_account.getText().toString();
+        String password = et_password.getText().toString();
+        if (account.isEmpty()){
+            Toast.makeText(LoginActivity.this, "请输入账号", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            boolean validateMobile = ValidateUtils.validateMobile(account);
+            if (!validateMobile){
+                Toast.makeText(LoginActivity.this, "请输入正确的账号", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        if (password.isEmpty()){
+            Toast.makeText(LoginActivity.this, "请输入密码", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!cb_protocol.isChecked()){
+            Toast.makeText(LoginActivity.this, "同意用户协议才能继续", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        requestLogin(account,password);
+    }
+
+    private void requestLogin(final String tel, final String psw) {
+            final JavaBeanRequest<LoginResult> request = new JavaBeanRequest<>(Urls.loginUrl, RequestMethod.POST, LoginResult.class);
+            request.add("tel",tel);
+            request.add("passwd",psw);
+
+            request(0, request, new OnResponseListener<LoginResult>() {
+
+                private AlertDialog dialog;
+
+                @Override
+                public void onStart(int what) {
+                    LoadingDialog loadingDialog = new LoadingDialog(mContext);
+                    dialog = loadingDialog.showLoadingDialog("");
+                }
+
+                @Override
+                public void onSucceed(int what, Response<LoginResult> response) {
+                    LoginResult loginResult = response.get();
+                    if ("200".equals(loginResult.getCode())){
+                        LoginResult.User data = loginResult.getData();
+                        String img_url = data.getImg_url();
+                        String real_name = data.getReal_name();
+                        Globalvariable.HEAD_IMAGE = img_url;
+                        Globalvariable.REAL_NAME = real_name;
+
+                        startActivity(new Intent(mContext,MainActivity.class));
+                        finish();
+                        saveLoginInfo(tel,psw);
+                        Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        RongCloudUtils.connect(mContext,"ClMOdS+6aMyDJ2rmrvP0qu3oB5M9l1ON2szCfCKLZM1wA4Iwjmjy98Esl5lFsdu4MacR2mvTv4Pd/PxUwgDgSQ==");
+                    }else {
+                        Toast.makeText(mContext, loginResult.getMsg(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailed(int what, Response<LoginResult> response) {
+                    Toast.makeText(mContext, "网络异常 "+response.responseCode(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFinish(int what) {
+                    dialog.dismiss();
+                }
+            });
+    }
+
+    private void saveLoginInfo(String account,String psw) {
+        boolean isAutoLogin = cb_auto_login.isChecked();
+        if (isAutoLogin){
+            SharePreferencesUtils.putString(mContext, "LOGIN_ACCOUNT", account);
+            SharePreferencesUtils.putString(mContext, "LOGIN_PSW", psw);
+        }
+        SharePreferencesUtils.putBoolean(mContext,"IS_AUTO_LOGIN",isAutoLogin);
     }
 }

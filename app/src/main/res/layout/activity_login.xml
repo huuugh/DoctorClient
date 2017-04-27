@@ -62,6 +62,7 @@
         android:layout_marginTop="15dp"
         android:id="@+id/ll_check_group">
         <CheckBox
+            android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="记住密码"
@@ -70,6 +71,7 @@
             android:drawableStart="@drawable/circle_checkbox_selector"
             android:textColor="@android:color/white"/>
         <CheckBox
+            android:checked="true"
             android:layout_marginStart="100dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

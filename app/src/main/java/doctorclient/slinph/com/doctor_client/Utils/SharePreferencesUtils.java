@@ -34,7 +34,7 @@ import java.util.Set;
  */
 public class SharePreferencesUtils {
 
-    public static String PREFERENCE_NAME = "TrineaAndroidCommon";
+    public static String PREFERENCE_NAME = "DoctorClientConfig";//TrineaAndroidCommon
 
     private SharePreferencesUtils() {
         throw new AssertionError();

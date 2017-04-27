@@ -14,12 +14,10 @@ public class AdviceActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
     }
 
     @Override
     protected void initEvent() {
-
     }
 
     @Override

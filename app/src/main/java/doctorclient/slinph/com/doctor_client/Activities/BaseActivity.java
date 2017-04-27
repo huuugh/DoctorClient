@@ -3,30 +3,35 @@ package doctorclient.slinph.com.doctor_client.Activities;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.yanzhenjie.nohttp.NoHttp;
+import com.yanzhenjie.nohttp.rest.OnResponseListener;
+import com.yanzhenjie.nohttp.rest.Request;
+import com.yanzhenjie.nohttp.rest.RequestQueue;
 
 import java.lang.reflect.Field;
 
 import doctorclient.slinph.com.doctor_client.R;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends FragmentActivity {
 
     private Toolbar tb_base;
     private TextView tv_toolbar;
+    private RequestQueue mRequestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //very important
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//set screen orientation
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);//set no title
+        //supportRequestWindowFeature(Window.FEATURE_NO_TITLE);//set no title
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -60,6 +65,19 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initView();
         initEvent();
+
+        mRequestQueue = NoHttp.newRequestQueue();
+    }
+
+    public <T> void request(int what, Request<T> request, OnResponseListener<T> listener) {
+        mRequestQueue.add(what, request, listener);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRequestQueue.cancelAll();
+        mRequestQueue.stop();
     }
 
     @Override

@@ -6,6 +6,12 @@ android {
 
     defaultConfig {
         applicationId "doctorclient.slinph.com.doctor_client"
+
+        //过滤CPU架构
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+
         minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
@@ -24,4 +30,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.facebook.fresco:fresco:0.12.0'
+
+    compile 'com.yanzhenjie.nohttp:nohttp:1.1.1'
+    compile 'com.yanzhenjie.nohttp:okhttp:1.1.1'
+    compile 'com.alibaba:fastjson:1.1.56.android'
+    compile 'com.alibaba:fastjson:1.2.31'
+
+    compile project(':IMKit')
+    compile 'com.android.support:support-v4:23.0.0'
 }

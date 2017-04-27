@@ -84,5 +84,6 @@
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
+        android:id="@+id/bt_logout"
         android:background="@drawable/bg_button_green"/>
 </LinearLayout>
